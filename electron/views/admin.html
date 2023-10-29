@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Administración</title>
+  <link rel="stylesheet" type="text/css" href="styles_htmls/styles.css">
+</head>
+<body>
+  <h1>Panel de Administración</h1>
+
+  <button id="backhome">volver</button>
+  <script>
+    document.getElementById('backhome').addEventListener('click', function() {
+      window.location.href = 'index.html';
+    });
+  </script>
+<button id="go-to-product">Ver Detalles del Producto</button>
+
+
+  <h2>Agregar Producto</h2>
+  <form id="product-form">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" required>
+    
+    <label for="descripcion">Descripción:</label>
+    <textarea id="descripcion" required></textarea>
+    
+    <label for="video">Video (URL):</label>
+    <input type="url" id="video" required>
+    
+    <button type="submit">Agregar Producto</button>
+  </form>
+
+  <h2>Lista de Productos</h2>
+  <ul id="product-list">
+    <!-- Aquí se mostrarán los productos -->
+  </ul>
+  
+  <h2>Editar Producto</h2>
+  <form id="edit-product-form">
+    <select id="product-dropdown">
+      <!-- Opciones para seleccionar un producto a editar -->
+    </select>
+
+    <label for="edit-nombre">Nuevo Nombre:</label>
+    <input type="text" id="edit-nombre">
+    
+    <label for="edit-descripcion">Nueva Descripción:</label>
+    <textarea id="edit-descripcion"></textarea>
+    
+    <label for="edit-video">Nuevo Video (URL):</label>
+    <input type="url" id="edit-video">
+    
+    <button type="submit">Guardar Cambios</button>
+  </form>
+
+  <h2>Eliminar Producto</h2>
+  <form id="delete-product-form">
+    <select id="delete-product-dropdown">
+      <!-- Opciones para seleccionar un producto a eliminar -->
+    </select>
+    
+    <button type="submit">Eliminar Producto</button>
+  </form>
+  
+  <script src="renderer.js"></script>
+</body>
+</html>
