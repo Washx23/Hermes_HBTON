@@ -1,0 +1,105 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h1 {
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  /* Estilos para los botones */
+  button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    display: block;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Formularios */
+  form {
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  input[type="text"],
+  input[type="url"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Estilos para la lista de productos */
+  ul#product-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  ul#product-list li {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #fff;
+  }
+  
+  /* Estilos para los select */
+  select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Estilos para el enlace de volver */
+  #backhome {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+  }
+  
+  #backhome:hover {
+    background-color: #000;
+  }
+  
+  /* Estilos para el botón de detalles del producto */
+  #go-to-product {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+  }
+  
+  #go-to-product:hover {
+    background-color: #1e7e34;
+  }
+  
