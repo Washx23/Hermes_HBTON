@@ -1,0 +1,43 @@
+-- Creación de la tabla de Usuarios
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR(255) NOT NULL UNIQUE,  -- Campo único para evitar duplicados
+  password VARCHAR(255) NOT NULL,
+  role VARCHAR(20) NOT NULL,
+  age INTEGER,
+  gender VARCHAR(10),
+  location VARCHAR(255)
+);
+
+-- Creación de la tabla de Campañas
+CREATE TABLE campaigns (
+  id SERIAL PRIMARY KEY,
+  admin_id INTEGER REFERENCES users(id),  -- Clave foránea para vincular a los administradores
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  video_url VARCHAR(255),
+  created_at TIMESTAMP NOT NULL
+);
+
+-- Creación de la tabla de Comentarios
+CREATE TABLE comments (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id),  -- Clave foránea para vincular a los usuarios invitados
+  campaign_id INTEGER REFERENCES campaigns(id),  -- Clave foránea para vincular a las campañas
+  comment TEXT NOT NULL,
+  created_at TIMESTAMP NOT NULL
+);
+
+-- Creación de la tabla de Estadísticas
+CREATE TABLE statistics (
+  id SERIAL PRIMARY KEY,
+  campaign_id INTEGER REFERENCES campaigns(id),  -- Clave foránea para vincular a las campañas
+  user_id INTEGER REFERENCES users(id),  -- Clave foránea para vincular a los usuarios invitados
+  emotion VARCHAR(20) NOT NULL,
+  timestamp TIMESTAMP NOT NULL
+);
+
+-- Restricción de integridad referencial adicional (opcional)
+-- Para asegurarse de que solo los administradores pueden crear campañas
+ALTER TABLE campaigns ADD CONSTRAINT check_admin_role
+  CHECK ((SELECT role FROM users WHERE id = admin_id) = 'admin');

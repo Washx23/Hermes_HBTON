@@ -1,0 +1,32 @@
+{
+  "name": "tu_proyecto_electron",
+  "version": "1.0.0",
+  "description": "Una aplicación de escritorio basada en Electron para reconocimiento de emociones",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder"
+  },
+  "author": "Tú",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^16.0.0",
+    "electron-builder": "^22.11.9"
+  },
+  "devDependencies": {
+  
+  },
+  "build": {
+    "appId": "com.tu_proyecto_electron",
+    "productName": "Tu Proyecto Electron",
+    "directories": {
+      "output": "dist"  
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  }
+}

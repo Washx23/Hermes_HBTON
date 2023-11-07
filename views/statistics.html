@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Estadísticas</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Estadísticas</h1>
+    <button id="back-button">Volver</button>
+  </header>
+
+  <main>
+    <h2>Gráficos de Estadísticas</h2>
+    <div id="emotions-chart">
+      <!-- Aquí se mostrarán los gráficos de estadísticas -->
+      <!-- Puedes utilizar bibliotecas como Chart.js, D3.js, etc. para generar los gráficos -->
+      <!-- Ejemplo de un gráfico de barras simple -->
+      <canvas id="bar-chart" width="400" height="200"></canvas>
+    </div>
+
+    <!-- Agrega más elementos de estadísticas según tus necesidades -->
+    <div id="additional-statistics">
+      <h3>Otras Estadísticas</h3>
+      <!-- Aquí se pueden mostrar más datos estadísticos, tablas, gráficos, etc. -->
+      <!-- Por ejemplo, una tabla de resumen de emociones por campaña -->
+      <table>
+        <tr>
+          <th>Campaña</th>
+          <th>Emoción 1</th>
+          <th>Emoción 2</th>
+          <!-- Agrega más encabezados según las emociones -->
+        </tr>
+        <tr>
+          <td>Campaña 1</td>
+          <td>15</td>
+          <td>20</td>
+          <!-- Agrega más datos de estadísticas por campaña -->
+        </tr>
+        <!-- Agrega más filas de campañas y datos aquí -->
+      </table>
+    </div>
+  </main>
+  <script>
+    // Lógica para volver a la página de administrador
+    const backButton = document.getElementById('back-button');
+    backButton.addEventListener('click', () => {
+      // Redirige de vuelta a la página de administrador (dashboard.html)
+      window.location.href = 'dashboard.html';
+    });
+
+    // Lógica para mostrar los gráficos de estadísticas (usando Chart.js como ejemplo)
+    const ctx = document.getElementById('bar-chart').getContext('2d');
+    const data = {
+      labels: ['Emoción 1', 'Emoción 2', 'Emoción 3', 'Emoción 4'],
+      datasets: [
+        {
+          label: 'Cantidad de Emociones',
+          data: [25, 40, 30, 20],
+          backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(75, 192, 192, 0.6)', 'rgba(255, 206, 86, 0.6)', 'rgba(54, 162, 235, 0.6)'],
+          borderColor: ['rgba(255, 99, 132, 1)', 'rgba(75, 192, 192, 1)', 'rgba(255, 206, 86, 1)', 'rgba(54, 162, 235, 1)'],
+          borderWidth: 1,
+        },
+      ],
+    };
+    new Chart(ctx, {
+      type: 'bar',
+      data: data,
+    });
+  </script>
+</body>
+</html>

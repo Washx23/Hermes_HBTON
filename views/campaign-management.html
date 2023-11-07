@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Administrador</title>
+  <link rel="stylesheet" type="text/css" href="/Hermes/views/styles/global.css">
+  <link rel="stylesheet" type="text/css" href="/Hermes/views/styles/PoductPage.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;1,200&display=swap">
+</head>
+<body>
+  <div class="poduct-page">
+    <div class="frame">
+      <div class="frame1">
+        <div class="rectangle-container">
+          <div class="frame-child14"></div>
+          <input class="titanium-design-a17-container1" type="text" />
+          <span class="titanium-design-a17-container2">
+            <p class="titanium-design-a171">
+              Titanium design. A17 Pro Chip. Action Button.
+            </p>
+            <p class="titanium-design-a171">
+              48 MP wide angle camera. USB-C.
+            </p>
+          </span>
+
+          <input class="iphone-15-pro-container" type="text" />
+          <p class="titanium-design-a171">Iphone 15 Pro Max</p>
+
+          <button class="creative-reels-composition2"></button>
+        </div>
+        <div class="rectangle-container">
+          <div class="frame-child14"></div>
+          <input class="titanium-design-a17-container3" type="text" />
+          <span class="titanium-design-a17-container2">
+            <p class="titanium-design-a171">
+              Titanium design. A17 Pro Chip. Action Button.
+            </p>
+            <p class="titanium-design-a171">
+              48 MP wide angle camera. USB-C.
+            </p>
+          </span>
+
+          <input class="iphone-15-pro-container1" type="text" />
+          <p class="titanium-design-a171">Iphone 15 Pro Max</p>
+
+          <button class="creative-reels-composition2"></button>
+        </div>
+        <div class="rectangle-container">
+          <div class="frame-child14"></div>
+          <input class="titanium-design-a17-container5" type="text" />
+          <span class="titanium-design-a17-container2">
+            <p class="titanium-design-a171">
+              Titanium design. A17 Pro Chip. Action Button.
+            </p>
+            <p class="titanium-design-a171">
+              48 MP wide angle camera. USB-C.
+            </p>
+          </span>
+
+          <input class="iphone-15-pro-container2" type="text" />
+          <p class="titanium-design-a171">Iphone 15 Pro Max</p>
+
+          <button class="creative-reels-composition2"></button>
+        </div>
+        <div class="rectangle-container">
+          <div class="frame-child14"></div>
+          <input class="titanium-design-a17-container7" type="text" />
+          <span class="titanium-design-a17-container2">
+            <p class="titanium-design-a171">
+              Titanium design. A17 Pro Chip. Action Button.
+            </p>
+            <p class="titanium-design-a171">
+              48 MP wide angle camera. USB-C.
+            </p>
+          </span>
+
+          <input class="iphone-15-pro-container3" type="text" />
+          <p class="titanium-design-a171">Iphone 15 Pro Max</p>
+
+          <button class="creative-reels-composition2"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Lógica para agregar campañas
+    const campaignList = document.querySelector('.frame1');
+    const campaigns = [
+      { id: 1, name: 'Campaña 1' },
+      { id: 2, name: 'Campaña 2' },
+      // Agrega más campañas aquí
+    ];
+
+    campaigns.forEach(campaign => {
+      const rectangle = document.createElement('div');
+      rectangle.className = 'rectangle-container';
+      rectangle.innerHTML = `
+        <div class="frame-child14"></div>
+        <input class="titanium-design-a17-container${campaign.id}" type="text" />
+        <span class="titanium-design-a17-container2">
+          <p class="titanium-design-a171">
+            Titanium design. A17 Pro Chip. Action Button.
+          </p>
+          <p class="titanium-design-a171">
+            48 MP wide angle camera. USB-C.
+          </p>
+        </span>
+        <input class="iphone-15-pro-container${campaign.id}" type="text" />
+        <p class="titanium-design-a171">Iphone 15 Pro Max</p>
+        <button class="creative-reels-composition2"></button>
+      `;
+      campaignList.appendChild(rectangle);
+    });
+
+    // Lógica para cerrar sesión
+    const logoutButton = document.querySelector('.hub');
+    logoutButton.addEventListener('click', () => {
+      // Implementa la lógica para cerrar sesión en tu aplicación
+    });
+
+    // Lógica para agregar gráficos de estadísticas (usando Chart.js como ejemplo)
+    const statisticsButton = document.getElementById('statistics');
+    statisticsButton.addEventListener('click', () => {
+      window.location.href = 'statistics.html';
+    });
+
+    // Lógica para agregar nuevas campañas
+    const addCampaignForm = document.getElementById('add-campaign-form');
+    addCampaignForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const campaignName = document.getElementById('campaign-name').value;
+      // Implementa la lógica para agregar una nueva campaña en tu aplicación
+      // Puedes enviar los datos al proceso principal de Electron para su procesamiento
+      // require('electron').ipcRenderer.send('add-campaign', campaignName);
+    });
+  </script>
+</body>
+</html>

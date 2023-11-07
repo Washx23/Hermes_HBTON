@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Administrador</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Panel de Administrador</h1>
+    <button id="logout-button">Cerrar Sesión</button>
+  </header>
+
+  <aside>
+    <h3>Navegación</h3>
+    <ul>
+      <li><a href="statistics.html">Estadísticas</a></li>
+      <li><a href="campaign-management.html">Gestión de Campañas</a></li>
+    </ul>
+    <button id="logout-button">Cerrar Sesión</button>
+  </aside>
+
+  <main>
+    <h2>Campañas</h2>
+    <ul id="campaign-list">
+      <!-- Lista de campañas -->
+      <!-- Ejemplo de una campaña -->
+      <li>
+        <span>Campaña 1</span>
+        <button class="edit-button" data-campaign-id="1">Editar</button>
+        <button class "delete-button" data-campaign-id="1">Eliminar</button>
+      </li>
+
+      <!-- Otra campaña -->
+      <li>
+        <span>Campaña 2</span>
+        <button class="edit-button" data-campaign-id="2">Editar</button>
+        <button class "delete-button" data-campaign-id="2">Eliminar</button>
+      </li>
+      <!-- Puedes agregar más campañas aquí -->
+    </ul>
+
+    <h2>Estadísticas</h2>
+    <div id="statistics-chart">
+      <!-- Gráfico de estadísticas (usando Chart.js como ejemplo) -->
+      <canvas id="bar-chart" width="400" height="200"></canvas>
+    </div>
+
+    <!-- Otros elementos y funcionalidades del panel de administrador -->
+    <h2>Agregar Nueva Campaña</h2>
+    <form id="add-campaign-form">
+      <label for="campaign-name">Nombre de la Campaña:</label>
+      <input type="text" id="campaign-name" name="campaign-name" required>
+      <button type="submit">Agregar</button>
+    </form>
+  </main>
+
+  <script>
+    // Lógica para cerrar sesión
+    const logoutButton = document.getElementById('logout-button');
+    logoutButton.addEventListener('click', () => {
+      require('electron').ipcRenderer.send('logout');
+    });
+
+    // Lógica para agregar campañas
+    const campaignList = document.getElementById('campaign-list');
+    const campaigns = [
+      { id: 1, name: 'Campaña 1' },
+      { id: 2, name: 'Campaña 2' },
+      // Agrega más campañas aquí
+    ];
+
+    campaigns.forEach(campaign => {
+      const listItem = document.createElement('li');
+      listItem.innerHTML = `
+        <span>${campaign.name}</span>
+        <button class="edit-button" data-campaign-id="${campaign.id}">Editar</button>
+        <button class="delete-button" data-campaign-id="${campaign.id}">Eliminar</button>
+      `;
+      campaignList.appendChild(listItem);
+    });
+
+    // Lógica para agregar gráficos de estadísticas (usando Chart.js como ejemplo)
+    const ctx = document.getElementById('bar-chart').getContext('2d');
+    const data = {
+      labels: ['Emoción 1', 'Emoción 2', 'Emoción 3', 'Emoción 4'],
+      datasets: [
+        {
+          label: 'Cantidad de Emociones',
+          data: [25, 40, 30, 20],
+          backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(75, 192, 192, 0.6)', 'rgba(255, 206, 86, 0.6)', 'rgba(54, 162, 235, 0.6)'],
+          borderColor: ['rgba(255, 99, 132, 1)', 'rgba(75, 192, 192, 1)', 'rgba(255, 206, 86, 1)', 'rgba(54, 162, 235, 1)'],
+          borderWidth: 1,
+        },
+      ],
+    };
+    new Chart(ctx, {
+      type: 'bar',
+      data: data,
+    });
+
+    // Lógica para agregar nuevas campañas
+    const addCampaignForm = document.getElementById('add-campaign-form');
+    addCampaignForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const campaignName = document.getElementById('campaign-name').value;
+      // Implementa la lógica para agregar una nueva campaña en tu aplicación
+      // Puedes enviar los datos al proceso principal de Electron para su procesamiento
+      require('electron').ipcRenderer.send('add-campaign', campaignName);
+    });
+  </script>
+</body>
+</html>

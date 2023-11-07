@@ -1,0 +1,205 @@
+/* styles.css */
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #4e88b4, #6eafd4, #8ec6f3);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  header {
+    background: #34495e;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  header h1 {
+    font-size: 24px;
+  }
+  
+  main {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+ /* Estilos para la barra de navegación lateral */
+ aside {
+  background: #2c3e50;
+  color: #fff;
+  width: 150px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0; /* Extiende la barra hasta la parte inferior */
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Alinea los elementos uno encima del otro */
+  justify-content: space-between; /* Coloca el botón de "Cerrar Sesión" en la parte inferior */
+}
+#logout-button {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  align-self: flex-end; /* Alinea el botón en la parte inferior de la barra */
+}
+
+#logout-button:hover {
+  background: #c0392b;
+}
+
+/* Ajusta el margen del contenido principal para dejar espacio para la barra lateral */
+main {
+  margin-left: 220px; /* El ancho de la barra más un espacio adicional */
+}
+
+/* Estilo para la lista en la barra de navegación */
+aside ul {
+  list-style: none;
+  padding: 0;
+}
+
+aside li {
+  margin-bottom: 10px;
+}
+
+/* Estilo para los enlaces de la barra de navegación */
+aside a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Estilo para los enlaces activos o seleccionados */
+aside a.active {
+  font-weight: bold;
+  color: #3498db; /* Cambia el color del enlace activo */
+}
+  /* Botones y formularios */
+  button {
+    background: #3498db;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #2980b9;
+  }
+  
+  form {
+    margin: 20px 0;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 5px;
+  }
+  
+  /* Lista de campañas */
+  #campaign-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #campaign-list li {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  #campaign-list .edit-button,
+  #campaign-list .delete-button {
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 5px;
+  }
+  
+  #campaign-list .edit-button:hover,
+  #campaign-list .delete-button:hover {
+    background: #c0392b;
+  }
+  
+  /* Gráfico de estadísticas */
+  #statistics-chart {
+    text-align: center;
+  }
+  
+  /* Otros estilos y personalización */
+  /* Agrega estilos adicionales según sea necesario */
+  /* styles.css */
+
+/* styles.css */
+
+#login-box {
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+#login-box h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #3498db; /* Color de fondo para resaltar */
+  color: #fff;
+}
+
+button {
+  background: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+button:hover {
+  background: #2980b9;
+}
