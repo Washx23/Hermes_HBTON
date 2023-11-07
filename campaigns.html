@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="./campaigns.css">
+    <script src="./campaigns.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <button id="dashboard">Home</button>
+            <button id="campaignsBtn" class="active">Campaigns</button>
+            <button id="statistics">Statistics</button>
+        </nav>
+    </header>
+    <main>
+        <h1>Welcome to Your Campaigns</h1>
+        <div id="campaigns">
+            <h2>Active Campaigns</h2>
+            <ul id="campaignList"></ul>
+            <button id="addCampaignBtn">Add New Campaign</button>
+            <div id="campaignForm" class="hidden">
+                <form id="campaignFormElement">
+                    <label for="title">Title of Campaign:</label>
+                    <input type="text" id="title" name="title" required>
+                    
+                    <label for="description">Description of Campaign:</label>
+                    <textarea id="description" name="description" required></textarea>
+                    
+                    <label for="videoUrl">Video URL:</label>
+                    <input type="url" id="videoUrl" name="videoUrl" required>
+                    
+                    <input type="submit" value="Submit Campaign">
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+</body>
+</html>

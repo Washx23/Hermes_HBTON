@@ -1,0 +1,107 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    background-color: rgb(231, 231, 231);
+}
+
+/* Layout styles */
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Aligns items vertically */
+    height: 100vh; /* Full height of the viewport */
+    width: 180px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed position */
+    top: 0;
+    left: 0;
+    background-color: #333; /* Dark background color */
+    color: white; /* Text color */
+}
+
+header nav {
+    display: flex;
+    flex-direction: column;
+}
+
+header nav button {
+    background: none;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    text-align: left;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+header nav button:hover {
+    background-color: rgb(35, 56, 247); /* Hover state color */
+}
+
+main {
+    margin-left: 250px; /* Same as the width of the sidebar */
+    padding: 20px;
+}
+
+/* Hidden class for toggleable elements */
+.hidden {
+    display: none;
+}
+
+/* Campaign Form Styling */
+#campaignForm {
+    margin-top: 15px;
+}
+
+#campaignForm label,
+#campaignForm input,
+#campaignForm textarea {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#campaignForm input,
+#campaignForm textarea {
+    width: 100%;
+}
+
+/* List styles for campaigns */
+#campaignList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#campaignList li {
+    border: 1px solid #ddd; /* Add a border to each campaign */
+    margin-bottom: 10px; /* Space between campaign boxes */
+    padding: 10px;
+    background-color: #f9f9f9; /* Light background for the campaign box */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: Add a subtle shadow for depth */
+    border-radius: 4px; /* Optional: Round the corners of the box */
+}
+
+/* Button styles for Edit and Delete inside the campaign box */
+#campaignList button {
+    background-color: #f4f4f4; /* Light background for buttons */
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer; /* Change mouse pointer on hover */
+    border-radius: 4px; /* Match the border radius of the campaign box */
+}
+
+#campaignList button:hover {
+    background-color: #e4e4e4; /* Slightly darker background on hover */
+}
+
+/* Styles for active button */
+.active {
+    background-color: rgb(35, 56, 247); /* Different background for active state */
+    color: #fff;
+}
