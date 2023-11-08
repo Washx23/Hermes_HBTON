@@ -1,107 +1,162 @@
-/* General styles */
-* {
+/* Base styles for the body */
+body {
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body, html {
-    height: 100%;
-    background-color: rgb(231, 231, 231);
-}
-
-/* Layout styles */
-header {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Aligns items vertically */
-    height: 100vh; /* Full height of the viewport */
-    width: 180px; /* Set the width of the sidebar */
-    position: fixed; /* Fixed position */
+  }
+  
+  /* Main content styles */
+  main {
+    margin-left: 250px; /* Same as sidebar width */
+    padding: 20px;
+    width: calc(100% - 250px); /* Adjust width to account for sidebar */
+  }
+  
+  /* Sidebar styles */
+  .sidebar {
+    background-color: #222222; /* Dark blue color */
+    color: rgb(202, 191, 191);
+    width: 250px; /* Adjust width as needed */
+    height: 100vh;
+    position: fixed;
     top: 0;
     left: 0;
-    background-color: #333; /* Dark background color */
-    color: white; /* Text color */
-}
-
-header nav {
     display: flex;
     flex-direction: column;
-}
-
-header nav button {
-    background: none;
-    border: none;
-    color: rgb(255, 255, 255);
-    padding: 10px 20px;
-    text-align: left;
+    align-items: center;
+    padding-top: 20px; /* Space at the top */
+  }
+  
+  /* User profile styles */
+  .user-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .user-profile img {
+    border-radius: 50%;
+    width: 100px; /* Profile picture size */
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid white;
+    margin-bottom: 10px;
+  }
+  
+  .user-profile .username {
+    font-weight: bold;
+    color: #ECF0F1;
+  }
+  
+  /* Navigation link styles */
+  .nav-link {
     width: 100%;
-    transition: background-color 0.3s;
-}
-
-header nav button:hover {
-    background-color: rgb(35, 56, 247); /* Hover state color */
-}
-
-main {
+    padding: 15px 20px;
+    text-align: left;
+    color: #ECF0F1;
+    text-decoration: none;
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-link:hover, .nav-link.active {
+    background-color: #2183e6; /* Slightly lighter blue */
+    border-left: 4px solid #2d87c4; /* Highlight color */
+  }
+  
+  main {
     margin-left: 250px; /* Same as the width of the sidebar */
     padding: 20px;
-}
+    flex-grow: 1; /* Ensures that main content takes up the rest of the horizontal space */
+  }
+  
+  /* Shared box styles for form and list items */
+  .box {
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 20px; /* Space between boxes */
+  }
 
-/* Hidden class for toggleable elements */
-.hidden {
+  .hidden{
     display: none;
-}
-
-/* Campaign Form Styling */
-#campaignForm {
+  }
+  
+  /* Campaign Form Box Styling */
+  #campaignForm {
     margin-top: 15px;
-}
-
-#campaignForm label,
-#campaignForm input,
-#campaignForm textarea {
+  }
+  
+  #campaignForm label,
+  #campaignForm input,
+  #campaignForm textarea,
+  #campaignForm button {
     display: block;
+    width: calc(100% - 20px); /* Adjust width accounting for padding */
     margin-bottom: 10px;
-}
-
-#campaignForm input,
-#campaignForm textarea {
-    width: 100%;
-}
-
-/* List styles for campaigns */
-#campaignList {
+  }
+  
+  #campaignForm input,
+  #campaignForm textarea {
+    padding: 8px; /* Add padding for better text visibility */
+    border: 1px solid #ccc; /* Consistent with list item border */
+  }
+  
+  #campaignForm button {
+    padding: 8px 16px;
+    background-color: #35a4ee; /* A nice blue color for buttons */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #campaignForm button:hover {
+    background-color: #2980B9; /* A slightly darker blue for button hover state */
+  }
+  
+  /* List styles for campaigns */
+  #campaignList {
     list-style-type: none;
     margin: 0;
     padding: 0;
+  }
+  
+  #campaignList li {
+    background: #f9f9f9; /* Light grey background */
+    border: 1px solid #ddd; /* Light grey border */
+    padding: 10px; /* Padding inside the boxes */
+    margin-bottom: 10px; /* Space between the boxes */
+    list-style-type: none; /* Remove default list styling */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow for depth */
 }
-
-#campaignList li {
-    border: 1px solid #ddd; /* Add a border to each campaign */
-    margin-bottom: 10px; /* Space between campaign boxes */
-    padding: 10px;
-    background-color: #f9f9f9; /* Light background for the campaign box */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: Add a subtle shadow for depth */
-    border-radius: 4px; /* Optional: Round the corners of the box */
-}
-
-/* Button styles for Edit and Delete inside the campaign box */
-#campaignList button {
-    background-color: #f4f4f4; /* Light background for buttons */
+  
+  /* Button styles for Edit and Delete inside the campaign box */
+  #campaignList button {
+    background-color: #f4f4f4;
     border: 1px solid #ccc;
     padding: 5px 10px;
     margin-right: 5px;
-    cursor: pointer; /* Change mouse pointer on hover */
-    border-radius: 4px; /* Match the border radius of the campaign box */
-}
-
-#campaignList button:hover {
-    background-color: #e4e4e4; /* Slightly darker background on hover */
-}
-
-/* Styles for active button */
-.active {
-    background-color: rgb(35, 56, 247); /* Different background for active state */
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  #campaignList button:hover {
+    background-color: #e4e4e4;
+  }
+  
+  /* Styles for active button */
+  .active {
+    background-color: rgb(35, 56, 247);
     color: #fff;
-}
+  }
+  
+  /* Footer styles */
+  footer {
+    padding: 10px 20px;
+    text-align: center;
+  }

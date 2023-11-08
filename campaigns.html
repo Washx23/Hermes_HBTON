@@ -1,40 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="./campaigns.css">
-    <script src="./campaigns.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hermes-Dashboard</title>
+    <link rel="stylesheet" href="campaigns.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <button id="dashboard">Home</button>
-            <button id="campaignsBtn" class="active">Campaigns</button>
-            <button id="statistics">Statistics</button>
-        </nav>
-    </header>
+    <div class="sidebar">
+        <!-- User Profile -->
+        <div class="user-profile">
+            <img src="images/maleuser@2x.png" alt="User Profile">
+            <div class="username">Samuel Evans</div>
+        </div>
+        <!-- Navigation Links -->
+        <a href="#" class="nav-link" id="dashboard">Home</a>
+        <a href="#" class="nav-link active" id="campaignsBtn">Campaigns</a>
+        <a href="#" class="nav-link" id="statistics">Statistics</a>
+    </div>
     <main>
-        <h1>Welcome to Your Campaigns</h1>
-        <div id="campaigns">
-            <h2>Active Campaigns</h2>
-            <ul id="campaignList"></ul>
-            <button id="addCampaignBtn">Add New Campaign</button>
-            <div id="campaignForm" class="hidden">
-                <form id="campaignFormElement">
-                    <label for="title">Title of Campaign:</label>
-                    <input type="text" id="title" name="title" required>
-                    
-                    <label for="description">Description of Campaign:</label>
-                    <textarea id="description" name="description" required></textarea>
-                    
-                    <label for="videoUrl">Video URL:</label>
-                    <input type="url" id="videoUrl" name="videoUrl" required>
-                    
-                    <input type="submit" value="Submit Campaign">
-                </form>
-            </div>
+        <h1>Your Campaigns</h1>
+        <button id="addCampaignBtn">Add New Campaign</button>
+        <div id="campaignList" class="campaign-container">
+            <!-- Campaign boxes will be added here -->
+        </div>
+        <div id="campaignForm" class="box hidden">
+            <form id="campaignFormElement">
+                <label for="title">Title of Campaign:</label>
+                <input type="text" id="title" name="title" required>
+                
+                <label for="description">Description of Campaign:</label>
+                <textarea id="description" name="description" required></textarea>
+                
+                <label for="videoUrl">Video URL:</label>
+                <input type="url" id="videoUrl" name="videoUrl" required>
+                
+                <input type="submit" value="Submit Campaign">
+                <button type="button" onclick="hideForm()">Cancel</button>
+            </form>
         </div>
     </main>
-    <footer></footer>
+    <script src="campaigns.js"></script>
 </body>
 </html>
