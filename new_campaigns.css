@@ -1,0 +1,132 @@
+body {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: flex-start; /* Align to the start of the page */
+    align-items: center;
+    height: auto; /* Let the body grow with content */
+    padding-top: 10vh; /* Give some space at the top */
+    margin: 0;
+    background-color: #c6caed;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .logo-container {
+    position: absolute;
+    top: 10px; /* Position logo at the top with a little padding */
+    left: 10px; /* Position logo at the right with a little padding */
+    padding: 10px;
+  }
+  
+  .logo {
+    max-width: 100px;
+    height: auto;
+  }
+  
+  .url-form {
+    background-color: #3c3c3c;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+  }
+  
+  
+  .instruction-box, .url-input, .submit-btn {
+    background-color: #3c3c3c;
+    color: white;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .instruction-box {
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .url-input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #496ddb;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-btn:hover {
+    background-color: #c6caed;
+  }
+  
+  .existing-campaigns {
+    padding-top: 20px;
+  }
+  
+  .campaign-box {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-top: 20px; /* Espace between campaign boxes */
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 5px;
+    /* Add hover effect for better user feedback */
+    transition: background-color 0.3s;
+  }
+  
+  .campaign-box:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .input-group {
+    margin-bottom: 10px;
+  }
+  
+  .text-input, .url-input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  footer {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  @media (max-width: 600px) {
+    body {
+        padding-top: 20px;
+      }
+    
+      .logo-container {
+        position: static;
+      }
+    
+      .url-form, .instruction-box, .campaign-box {
+        width: calc(100% - 20px);
+        margin: 10px;
+        padding: 5px;
+      }
+    
+    .url-input, .submit-btn {
+      width: calc(100% - 10px);
+    }
+    
+    .logo {
+      max-width: 50px;
+    }
+    
+  }
+  
