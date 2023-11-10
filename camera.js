@@ -44,7 +44,6 @@ window.addEventListener('DOMContentLoaded', () => {
     const frameData = canvas.toDataURL('image/png');
     // Enviar el frame capturado al proceso principal usando la API expuesta en preload.js
     window.api.saveFrame(frameData, videoId);
-    ipcRenderer.send('save-frame', { frameData, videoId });
   }
 
   function stopCapturing() {
@@ -57,17 +56,19 @@ window.addEventListener('DOMContentLoaded', () => {
 });
  
 
-   function loadUserImage(videoId) {
-     return fetch(`http://localhost:5000/load_img/${videoId}`)
-       .then(response => response.json())
-       .then(data => {
-         console.log('Imagen cargada:', data);
-         return data;
+      fetch("http://localhost:5000/load_img/${videoId}")
+      .then((response) => {
+          if (response.ok) {
+              return response.json();
+          }
+      })
+        .then(data => {
+            console.log('Imagen cargada:', data);
+            return data;
        })
-       .catch(error => {
+        .catch(error => {
          console.error('Error al cargar la imagen:', error);
        });
-   }
 
     function processImageWithModel(videoI) {
       return fetch(`http:localhost:5000/load_model/${videoI}`)
