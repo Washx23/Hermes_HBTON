@@ -1,14 +1,42 @@
-<!-- <!DOCTYPE html>
+<!-- 
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Formulario de Búsqueda de Video</title>
 <link rel="stylesheet" href="./views/styles/url_capture.css">
+<script>
+function buscarVideo() {
+  var videoUrl = document.getElementById('video-url').value;
+  // Asegúrate de que la URL es la correcta y está bien formada
+  var fetchUrl = `http://localhost:5000/urls/load/${encodeURIComponent(videoUrl)}`;
+
+  fetch(fetchUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (data.id) {
+        alert('ID del Video: ' + data.id);
+        window.location.href = './guest.html';
+      } else {
+        alert('Error: ' + data.error);
+      }
+    })
+    .catch(error => alert('Error al buscar el video: ' + error));
+  return false;
+}
+
+
+</script>
 </head>
 <body>
 
-<form action="./guest.html" method="get">
+<form onsubmit="return buscarVideo()">
   <label for="video-url">URL del Video:</label><br>
   <input type="text" id="video-url" name="video-url" required><br>
   <input type="submit" value="Buscar">
@@ -25,29 +53,6 @@
 <title>Formulario de Búsqueda de Video</title>
 <link rel="stylesheet" href="./views/styles/url_capture.css">
 <script>
-// function buscarVideo() {
-//   var videoUrl = document.getElementById('video-url').value;
-//   // Asegúrate de que la URL es la correcta y está bien formada
-//   var fetchUrl = `http://localhost:5000/urls/load/${encodeURIComponent(videoUrl)}`;
-
-//   fetch(fetchUrl)
-//     .then(response => {
-//       if (!response.ok) {
-//         throw new Error('Network response was not ok');
-//       }
-//       return response.json();
-//     })
-//     .then(data => {
-//       if (data.id) {
-//         // alert('ID del Video: ' + data.id);
-//         window.location.href = './guest.html';
-//       } else {
-//         alert('Error: ' + data.error);
-//       }
-//     })
-//     .catch(error => alert('Error al buscar el video: ' + error));
-//   return false;
-// }
 function buscarVideo() {
   var videoUrl = document.getElementById('video-url').value;
   var fetchUrl = `http://localhost:5000/urls/load/${encodeURIComponent(videoUrl)}`;
@@ -61,16 +66,17 @@ function buscarVideo() {
     })
     .then(data => {
       if (data.id) {
-        // Redirigir a la página de guest con el ID del video en la URL
-        window.location.href = `./guest.html?videoId=${data.id}`;
+        // Almacenar el ID del video en el almacenamiento local
+        localStorage.setItem('videoId', data.id);
+        // Redireccionar a guest.html
+        window.location.href = './guest.html';
       } else {
         alert('Error: ' + data.error);
       }
     })
     .catch(error => alert('Error al buscar el video: ' + error));
-  return false;
+  return false; // Evitar el envío del formulario
 }
-
 </script>
 </head>
 <body>

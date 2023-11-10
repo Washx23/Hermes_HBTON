@@ -5,7 +5,7 @@ const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'Hermes',
-  password: 'user',
+  password: 'hermest4',
   port: 5432,
 });
 

@@ -37,20 +37,11 @@ app.on('activate', function () {
 });
 
 // Manejo de IPC para guardar datos de un 'frame'
-// ipcMain.on('save-frame', async (event, frameData) => {
-//   try {
-//     await saveFrame(frameData); // Implementa esta función en el módulo 'database'
-//     event.reply('save-frame-reply', 'Frame saved successfully');
-//   } catch (error) {
-//     event.reply('save-frame-reply', `Error saving frame: ${error.message}`);
-//   }
-// });
-
 ipcMain.on('save-frame', async (event, frameData, userId) => {
   try {
-    const result = await saveFrame(frameData, userId);
-    event.reply('save-frame-reply', { status: 'success', result: result });
+    await saveFrame(frameData, userId); // Implementa esta función en el módulo 'database'
+    event.reply('save-frame-reply', 'Frame saved successfully');
   } catch (error) {
-    event.reply('save-frame-reply', { status: 'error', message: error.message });
+    event.reply('save-frame-reply', `Error saving frame: ${error.message}`);
   }
 });
