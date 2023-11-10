@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User and Guest</title>
+<link rel="stylesheet" href="./views/styles/register.css">
+</head>
+<body>
+
+<div class="container" id="user-container">
+  <div class="title">User</div>
+  <div class="image-holder">
+    <img src="https://img.freepik.com/psd-premium/avatar-dibujos-animados-3d-hombre-sonriente_1020-5127.jpg?w=2000" alt="User Image">
+  </div>
+  <button class="start-btn" id="user-start-btn">Start</button>
+</div>
+
+<div class="container" id="guest-container">
+  <div class="title">Guest</div>
+  <div class="image-holder">
+    <img src="https://img.freepik.com/psd-premium/avatar-dibujos-animados-3d-hombre-sonriente_1020-5130.jpg?w=2000" alt="Guest Image">
+  </div>
+  <button class="start-btn" id="guest-start-btn">Start</button>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const userStartButton = document.getElementById('user-start-btn');
+    const guestStartButton = document.getElementById('guest-start-btn');
+
+    userStartButton.addEventListener('click', () => {
+      window.location.href = './log.html';
+    });
+
+    guestStartButton.addEventListener('click', () => {
+      window.location.href = './url_capture.html';
+    });
+  });
+</script>
+</body>
+</html>

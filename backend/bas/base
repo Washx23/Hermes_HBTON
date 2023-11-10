@@ -1,0 +1,17 @@
+CREATE TABLE user_basics(
+  id SERIAL PRIMARY KEY,
+  name_inc VARCHAR,
+  email VARCHAR
+);
+
+CREATE TABLE video (
+id SERIAL PRIMARY KEY,
+video_url VARCHAR,
+user_id INTEGER REFERENCES user_basics(id)
+);
+
+CREATE TABLE to_process_img (
+  id SERIAL PRIMARY KEY,
+  frames_data BYTEA NOT NULL,
+  video_id INTEGER REFERENCES video(id)
+);

@@ -1,0 +1,71 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f7f7f7;
+}
+.container {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 250px; /* Adjusted width */
+  margin: 10px; /* Same space for top and bottom */
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centered content */
+}
+.container:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.title {
+  color: #333;
+  margin-top: 10px; /* Space for title */
+  margin-bottom: 20px; /* Space before image */
+}
+.image-holder {
+  width: 100px; /* Smaller width for the circle */
+  height: 100px; /* Same height to make it a circle */
+  margin-bottom: 20px;
+  background-color: #ddd;
+  border-radius: 50%; /* Circular shape */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Ensures the image doesn't spill out of the circle */
+}
+.image-holder img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.start-btn {
+  background-color: #008CBA;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 20px; /* Space above the button */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 80%; /* Button width to make it look centered */
+}
+.start-btn:hover {
+  background-color: #005f73;
+}
+
+/* Extra CSS to reduce the gap between the containers */
+#user-container {
+  margin-right: 5px; /* Reduce space on the right */
+}
+
+#guest-container {
+  margin-left: 5px; /* Reduce space on the left */
+}
