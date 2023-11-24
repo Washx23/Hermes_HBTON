@@ -89,12 +89,12 @@ def get_model(user_id):
     
     
     try:
-        #model = YOLO('./models/emilio_v1.pt')
+        model = YOLO('./models/emilio_v1.pt')
         image_folder = "images_/captured_frames/{}".format(user_id)
 
         for filename in os.listdir(image_folder):
             if filename.endswith(".jpg") or filename.endswith('.png'):     
-                """results = model(Image.open(os.path.join(image_folder, filename)))
+                results = model(Image.open(os.path.join(image_folder, filename)))
 
                 for result in results:
                     boxes = result.boxes.cpu().numpy()
@@ -105,9 +105,9 @@ def get_model(user_id):
                         int_id = int(float_id)
                         class_ids.append(int_id)
                     except ValueError:
-                        print("algo salió mal") """
+                        print("algo salió mal")
         class_ids = []
-        temp_list = [4.0, 2.0, 3.0, 3.0, 3.0, 4.0, 3.0, 2.0, 3.0]
+        
         # Agregamos la lista temp_list a class_ids
         class_ids.extend(temp_list)
 
